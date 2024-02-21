@@ -25,25 +25,36 @@ func main() {
 //	return rs
 //}
 
-// Solution 2
+// Solution 2 - Using hashtable
+//func twoSum(nums []int, target int) []int {
+//
+//	// dùng hashtable để chưa key-value
+//	store := make(map[int]int)
+//
+//	var rs []int
+//
+//	for i, v := range nums {
+//		store[v] = i
+//	}
+//
+//	// lặp qua từng index và value của nums
+//	for ix, v := range nums {
+//
+//		// iy là value của store[target-v]
+//		// nếu store[target-v] trùng với key đang chứa trong store
+//		// và vì v là value của ix => nên chắc chắn value của ix và iy sẽ bằng target
+//		iy, ok := store[target-v]
+//
+//		if ok && iy != ix {
+//			rs = []int{ix, iy}
+//			return rs
+//		}
+//	}
+//	return rs
+//
+//}
+
+// Solution 3: Two Pointers
 func twoSum(nums []int, target int) []int {
-
-	store := make(map[int]int)
-
-	var rs []int
-
-	for i, v := range nums {
-		store[v] = i
-	}
-
-	for ix, v := range nums {
-		iy, ok := store[target-v]
-
-		if ok && iy != ix {
-			rs = []int{ix, iy}
-			return rs
-		}
-	}
-	return rs
-
+	return nil
 }
