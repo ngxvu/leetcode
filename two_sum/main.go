@@ -54,7 +54,34 @@ func main() {
 //
 //}
 
-// Solution 3: Two Pointers
+// Solution 2 - Using hashtable
 func twoSum(nums []int, target int) []int {
-	return nil
+
+	var rs []int
+
+	store := make(map[int]int)
+
+	//[2, 7, 11, 15]
+	//store[2] = 0
+	//store[7] = 1
+	//store[11] = 2
+	//store[15] = 3
+	//store[9-2] <=> store[7]
+
+	for i, v := range nums {
+		store[v] = i
+	}
+
+	for i, v := range nums {
+		// j là value trong map, store[target-v] sẽ tìm value trong map phù hợp
+		j, ok := store[target-v]
+		if ok && i != j {
+			rs = []int{i, j}
+		}
+	}
+
+	return rs
 }
+
+// Solution 3: Two Pointers
+// Two Pointer must sort first
